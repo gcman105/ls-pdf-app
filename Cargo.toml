@@ -1,0 +1,17 @@
+[package]
+name = "ls-pdf-app"
+version = "0.1.0"
+authors = [ "Gary Cheeseman <gary@five57.com>" ]
+edition = "2021"
+description = "A simple program that lists all of the PDF files in a given directory."
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+
+[[bin]]
+name = "ls-pdf-app"
+path = "src/main.rs"
+
