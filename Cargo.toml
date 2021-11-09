@@ -9,7 +9,9 @@ readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
+simple_logger = "1.13.0"
+log = "0.4"
+notify = "4.0.17"
 
 [[bin]]
 name = "ls-pdf-app"

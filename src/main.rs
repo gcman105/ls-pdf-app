@@ -1,12 +1,18 @@
+extern crate notify;
+
+use log;
 use std::{fs, env, io};
+use simple_logger::SimpleLogger;
 
 fn main() {
+    SimpleLogger::new().init().unwrap();
+
     let args: Vec<String> = env::args().collect();
     //let args: Vec<_> = env::args().collect();
 
     // We expect 1 argument (the path), return if not.
     if args.len() != 2 {
-        println!("Usage: {} \"PDF folder path\"", args[0]);
+        log::error!("Usage: {} \"PDF folder path\"", args[0]);
         return;
     }
 
@@ -15,11 +21,11 @@ fn main() {
 
     let the_path: String = ::std::env::args().nth(1).unwrap();
 
-    println!("The PATH argument given is:{:?}", the_path);
+    log::info!("The PATH argument given is:{:?}", the_path);
 
     let res = pdfs(the_path);
 
-    println!("The result is:{:?}", res);
+    log::info!("The result is:{:?}", res);
 }
 
 
@@ -30,7 +36,9 @@ fn pdfs(path: String) -> io::Result<()> {
         .collect::<Result<Vec<_>, io::Error>>()?;
 
     for entry in entries {
-        println!("{:?}", entry);
+        log::info!("{:?}", entry);
+        log::trace!("{:?}", entry);
+        //println!("{:?}", entry);
     }
 
     Ok(())
